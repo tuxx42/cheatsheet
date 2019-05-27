@@ -60,6 +60,6 @@ iptables $OP FORWARD -i $IN -o $OUT -j ACCEPT
 iptables $OP FORWARD -i $OUT -o $IN -j ACCEPT
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-ip route $OP2 default dev tun0 table 100
-ip rule $OP2 iif tun1 table 100
+ip route $OP2 default dev $OUT table 100
+ip rule $OP2 iif $IN table 100
 </pre>
